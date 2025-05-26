@@ -1,19 +1,41 @@
-# APRS Legal Assistant
+<div align="center">
 
-APRS Legal Assistant is a cutting-edge, multilingual legal AI assistant designed for legal professionals, researchers, and the public. It combines advanced Retrieval-Augmented Generation (RAG), document management, voice processing, and web crawling into a seamless, cross-platform application. The project leverages state-of-the-art AI models, scalable vector search, and a modern Flutter/Electron frontend for a powerful legal workflow.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=36BCF7&width=435&lines=APRS+Legal+Assistant+%F0%9F%94%96;Multilingual+AI+for+Law+%F0%9F%93%84%F0%9F%8E%93%F0%9F%9A%80" alt="Typing SVG" />
+
+![GitHub repo stars](https://img.shields.io/github/stars/krishnakoushik9/microsoft-Ideathon0_bhasha_bandhu?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/krishnakoushik9/microsoft-Ideathon0_bhasha_bandhu?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/krishnakoushik9/microsoft-Ideathon0_bhasha_bandhu?style=flat-square)
+![GitHub license](https://img.shields.io/github/license/krishnakoushik9/microsoft-Ideathon0_bhasha_bandhu?style=flat-square)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+![Visitor Badge](https://komarev.com/ghpvc/?username=krishnakoushik9&label=VISITORS&style=flat-square)
+
+---
+
+<img src="https://skillicons.dev/icons?i=python,fastapi,flutter,dart,nodejs,electron,js,html,css,github,git,linux&perline=8" alt="Tech Stack" />
+
+</div>
+
+<details>
+<summary><strong>✨ <ins>Why APRS Legal Assistant?</ins></strong> (click to expand)</summary>
+
+> <img src="https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif" width="32"> <b>APRS Legal Assistant</b> brings together multilingual AI, document management, voice, and web crawling into a single, beautiful desktop app for legal professionals, students, and researchers. It’s built for speed, security, and extensibility!
+
+</details>
 
 ---
 
 ## 🚀 Key Features
 
-- **Multilingual Support:** English, Hindi, Telugu, Marathi (easily extensible)
-- **Retrieval-Augmented Generation (RAG):** Combines LLMs (e.g., Mixtral, Falcon) with Pinecone vector search for context-aware legal Q&A
-- **Document Management:** Upload, preview, search, and manage legal documents (PDF, images, text, etc.) with metadata
-- **Voice Pipeline:** End-to-end ASR → Translation → TTS for Telugu-English (Bhashini models)
-- **Web Crawler:** Automated legal site scraping for up-to-date case law and statutes
-- **Offline & Online Modes:** Works with local models or Hugging Face API
-- **Electron Desktop App:** Runs natively on Windows/Linux with Flutter web frontend
-- **Secure Secret Management:** .env-based config, GitHub push protection, and best practices
+| Feature | Description |
+|---------|-------------|
+| 🌐 **Multilingual** | English, Hindi, Telugu, Marathi support |
+| 🧠 **RAG AI** | Context-aware Q&A using Hugging Face LLMs + Pinecone |
+| 📄 **Document System** | Upload, preview, manage PDFs/images/text |
+| 🗣️ **Voice Pipeline** | ASR → Translate → TTS (Bhashini models) |
+| 🕸️ **Web Crawler** | Scrapes legal sites for latest data |
+| 💻 **Desktop App** | Electron + Flutter for Windows/Linux |
+| 🔒 **Secure Secrets** | .env config, push protection |
+| 🛠️ **Offline/Online** | Works with local or cloud models |
 
 ---
 
