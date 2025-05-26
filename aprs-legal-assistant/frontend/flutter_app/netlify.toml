@@ -1,0 +1,12 @@
+[build]
+  command = "flutter build web"
+  publish = "build/web"
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+[[redirects]]
+  from = "/api/*"
+  to = "http://localhost:8000/:splat"
+  status = 200
+  force = true

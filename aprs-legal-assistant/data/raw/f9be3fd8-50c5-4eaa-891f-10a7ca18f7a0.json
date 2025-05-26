@@ -1,0 +1,6 @@
+{
+  "url": "https://www.perplexity.ai/discover",
+  "domain": "perplexity",
+  "content": "Perplexity.ai scraping error: Message: invalid session id: session deleted as the browser has closed the connection\nfrom disconnected: not connected to DevTools\n  (Session info: MicrosoftEdge=135.0.3179.73)\nStacktrace:\n#0 0x64dd5ab6c4ce <unknown>\n#1 0x64dd5a5bf5d6 <unknown>\n#2 0x64dd5a5a7611 <unknown>\n#3 0x64dd5a5cd73c <unknown>\n#4 0x64dd5a63e4ca <unknown>\n#5 0x64dd5a6558d4 <unknown>\n#6 0x64dd5a635093 <unknown>\n#7 0x64dd5a6028d1 <unknown>\n#8 0x64dd5a603561 <unknown>\n#9 0x64dd5ab3d671 <unknown>\n#10 0x64dd5ab4081d <unknown>\n#11 0x64dd5ab402eb <unknown>\n#12 0x64dd5ab40c85 <unknown>\n#13 0x64dd5ab2af4b <unknown>\n#14 0x64dd5ab4104c <unknown>\n#15 0x64dd5ab13fe5 <unknown>\n#16 0x64dd5ab5ca98 <unknown>\n#17 0x64dd5ab5ccbc <unknown>\n#18 0x64dd5ab6b8dc <unknown>\n#19 0x7c93df49caa4 <unknown>\n#20 0x7c93df529c3c <unknown>\n",
+  "crawled_at": 1744976433.7548466
+}

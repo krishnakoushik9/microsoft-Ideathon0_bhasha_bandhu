@@ -1,0 +1,52 @@
+{
+  "name": "aprs-legal-assistant",
+  "version": "1.0.0",
+  "description": "Multilingual Legal Assistant with RAG capabilities",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "backend": "cd backend && python main.py",
+    "dev": "concurrently \"npm run backend\" \"electron .\"",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "author": "APRS Legal",
+  "license": "MIT",
+  "dependencies": {
+    "electron-log": "^4.4.8"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "electron": "^25.3.1",
+    "electron-builder": "^24.6.3"
+  },
+  "build": {
+    "appId": "com.aprs.legal-assistant",
+    "productName": "APRS Legal Assistant",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "frontend/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend",
+        "filter": ["**/*", "!__pycache__/**/*", "!*.pyc"]
+      }
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "frontend/assets/logo.png"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Office",
+      "icon": "frontend/assets/logo.png"
+    }
+  }
+}

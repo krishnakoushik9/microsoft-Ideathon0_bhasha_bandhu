@@ -1,0 +1,98 @@
+APRS Legal Assistant – Postman Integration & Troubleshooting Prompt
+
+I am working on a project called **APRS Legal Assistant**. It’s a Python FastAPI backend that integrates with the Bhashini API for speech-to-text (ASR) and translation, and includes a fallback to NeMo ASR if the main pipeline fails. The main endpoint for voice queries is `/api/voice-query`, which accepts audio files and/or text, processes them, and returns a response. I want you to walk me through, in great detail, how to use Postman to test and develop with this backend, including all setup, troubleshooting, and best practices.
+
+---
+
+Project Details
+- Backend: Python (FastAPI)
+- Main endpoint: POST /api/voice-query
+- Features: Voice queries, Bhashini API integration (ASR + translation), fallback to NeMo ASR, error logging.
+- Error logs: mail_errors.log, main_these_errors.txt
+- Environment: Requires API keys and service IDs (in .env)
+
+Example: Relevant Code Snippets
+
+1. Endpoint signature (FastAPI)
+@router.post("/api/voice-query")
+async def voice_query(audio: UploadFile = File(None), text: str = Form(None)):
+    # ...process audio/text...
+    # ...call Bhashini API...
+    # ...fallback to NeMo if needed...
+    # ...return response...
+
+2. Bhashini API Pipeline Payload
+pipeline_payload = {
+    "pipelineTasks": [
+        {
+            "taskType": "asr",
+            "config": {
+                "language": {
+                    "sourceLanguage": "te"
+                },
+                "serviceId": ASR_TE_SERVICE_ID
+            }
+        },
+        {
+            "taskType": "translation",
+            "config": {
+                "language": {
+                    "sourceLanguage": "te",
+                    "targetLanguage": "en"
+                },
+                "serviceId": TRANSLATION_TE_EN_SERVICE_ID
+            }
+        }
+    ],
+    "inputData": {
+        "input": [
+            {
+                "source": ""
+            }
+        ],
+        "audio": [
+            {
+                "audioContent": audio_base64
+            }
+        ]
+    }
+}
+
+3. Error Logging Example
+logger.error(f"Gemini API error: {e}")
+flush_log_handlers()
+copy_mail_errors()
+await broadcast_log(f"[Backend] Gemini API error: {e}")
+
+4. .env Example
+UDYAT_API_KEY=your_key_here
+UDYAT_USER_ID=your_user_id
+ASR_TE_SERVICE_ID=your_bhashini_asr_service_id
+TRANSLATION_TE_EN_SERVICE_ID=your_bhashini_translation_service_id
+GOOGLE_API_KEY=your_google_key
+
+---
+
+My Request
+- Please give me a step-by-step, beginner-friendly guide for:
+    1. Installing Postman on Linux (all methods).
+    2. Launching Postman and creating a new POST request to `/api/voice-query`.
+    3. Attaching an audio file and/or text as form-data.
+    4. Setting headers (if needed).
+    5. Sending the request and interpreting the response.
+    6. Setting up `.env` and environment variables for the backend.
+    7. Installing Python dependencies (from `requirements.txt` or otherwise).
+    8. Starting the FastAPI server.
+    9. Debugging common issues (404, authentication, missing dependencies, CORS, etc.).
+    10. Viewing error logs.
+    11. Testing the fallback ASR (NeMo) if the Bhashini pipeline fails.
+    12. Best practices for API testing and iterative development with Postman.
+
+- Please use my code snippets and project details to make your instructions as relevant as possible.
+- Provide all command-line instructions, UI navigation tips, and explain the reasoning behind each step.
+- Ask me clarifying questions if you need more details about my setup or goals.
+- My goal is to deeply understand how to connect Postman to my backend and confidently test all voice and translation features, including error handling and troubleshooting.
+
+---
+
+You may ask for more details or request additional code/config files if needed. The more specific and practical your guidance, the better!

@@ -1,0 +1,529 @@
+2025-04-19 19:17:59,364 - INFO - Connecting to Bhashini ASR API...
+2025-04-19 19:17:59,364 - backend.bhashini_voice - INFO - Connecting to Bhashini ASR API...
+/home/krsna/Desktop/ideathon/aprs-legal-assistant/venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.dhruva.ai4bharat.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+2025-04-19 19:17:59,850 - ERROR - ASR error: <!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Azure Web App - Error 404</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #feature {
+            width: 960px;
+            margin: 75px auto 0 auto;
+            overflow: auto;
+        }
+
+        #content {
+            font-family: "Segoe UI";
+            font-weight: normal;
+            font-size: 22px;
+            color: #ffffff;
+            float: left;
+            margin-top: 68px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }
+
+            #content h1 {
+                font-family: "Segoe UI Light";
+                color: #ffffff;
+                font-weight: normal;
+                font-size: 60px;
+                line-height: 48pt;
+                width: 800px;
+            }
+
+        a, a:visited, a:active, a:hover {
+            color: #ffffff;
+        }
+
+        #content a.button {
+            background: #0DBCF2;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: Segoe UI;
+            font-size: 24px;
+            line-height: 46px;
+            margin-top: 10px;
+            padding: 0 15px 3px;
+            text-decoration: none;
+        }
+
+            #content a.button img {
+                float: right;
+                padding: 10px 0 0 15px;
+            }
+
+            #content a.button:hover {
+                background: #1C75BC;
+            }
+    </style>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</head>
+<body bgcolor="#00abec">
+    <div id="feature">
+        <div id="content">
+            <h1>404 Web Site not found.</h1>
+            <p>You may be seeing this error due to one of the reasons listed below :</p>
+            <ul>
+                <li>Custom domain has not been configured inside Azure. See <a href="https://go.microsoft.com/fwlink/?linkid=2194614">how to map an existing domain</a> to resolve this.</li>
+                <li>Client cache is still pointing the domain to old IP address. Clear the cache by running the command <i>ipconfig/flushdns.</i></li>
+            </ul>
+            <p>Checkout <a href="https://go.microsoft.com/fwlink/?linkid=2194451">App Service Domain FAQ</a> for more questions.</p>
+        </div>
+     </div>
+</body>
+</html>
+
+2025-04-19 19:17:59,850 - backend.bhashini_voice - ERROR - ASR error: <!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Azure Web App - Error 404</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #feature {
+            width: 960px;
+            margin: 75px auto 0 auto;
+            overflow: auto;
+        }
+
+        #content {
+            font-family: "Segoe UI";
+            font-weight: normal;
+            font-size: 22px;
+            color: #ffffff;
+            float: left;
+            margin-top: 68px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }
+
+            #content h1 {
+                font-family: "Segoe UI Light";
+                color: #ffffff;
+                font-weight: normal;
+                font-size: 60px;
+                line-height: 48pt;
+                width: 800px;
+            }
+
+        a, a:visited, a:active, a:hover {
+            color: #ffffff;
+        }
+
+        #content a.button {
+            background: #0DBCF2;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: Segoe UI;
+            font-size: 24px;
+            line-height: 46px;
+            margin-top: 10px;
+            padding: 0 15px 3px;
+            text-decoration: none;
+        }
+
+            #content a.button img {
+                float: right;
+                padding: 10px 0 0 15px;
+            }
+
+            #content a.button:hover {
+                background: #1C75BC;
+            }
+    </style>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</head>
+<body bgcolor="#00abec">
+    <div id="feature">
+        <div id="content">
+            <h1>404 Web Site not found.</h1>
+            <p>You may be seeing this error due to one of the reasons listed below :</p>
+            <ul>
+                <li>Custom domain has not been configured inside Azure. See <a href="https://go.microsoft.com/fwlink/?linkid=2194614">how to map an existing domain</a> to resolve this.</li>
+                <li>Client cache is still pointing the domain to old IP address. Clear the cache by running the command <i>ipconfig/flushdns.</i></li>
+            </ul>
+            <p>Checkout <a href="https://go.microsoft.com/fwlink/?linkid=2194451">App Service Domain FAQ</a> for more questions.</p>
+        </div>
+     </div>
+</body>
+</html>
+
+2025-04-19 19:17:59,851 - ERROR - ASR API connection failed: 502: ASR error: <!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Azure Web App - Error 404</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #feature {
+            width: 960px;
+            margin: 75px auto 0 auto;
+            overflow: auto;
+        }
+
+        #content {
+            font-family: "Segoe UI";
+            font-weight: normal;
+            font-size: 22px;
+            color: #ffffff;
+            float: left;
+            margin-top: 68px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }
+
+            #content h1 {
+                font-family: "Segoe UI Light";
+                color: #ffffff;
+                font-weight: normal;
+                font-size: 60px;
+                line-height: 48pt;
+                width: 800px;
+            }
+
+        a, a:visited, a:active, a:hover {
+            color: #ffffff;
+        }
+
+        #content a.button {
+            background: #0DBCF2;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: Segoe UI;
+            font-size: 24px;
+            line-height: 46px;
+            margin-top: 10px;
+            padding: 0 15px 3px;
+            text-decoration: none;
+        }
+
+            #content a.button img {
+                float: right;
+                padding: 10px 0 0 15px;
+            }
+
+            #content a.button:hover {
+                background: #1C75BC;
+            }
+    </style>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</head>
+<body bgcolor="#00abec">
+    <div id="feature">
+        <div id="content">
+            <h1>404 Web Site not found.</h1>
+            <p>You may be seeing this error due to one of the reasons listed below :</p>
+            <ul>
+                <li>Custom domain has not been configured inside Azure. See <a href="https://go.microsoft.com/fwlink/?linkid=2194614">how to map an existing domain</a> to resolve this.</li>
+                <li>Client cache is still pointing the domain to old IP address. Clear the cache by running the command <i>ipconfig/flushdns.</i></li>
+            </ul>
+            <p>Checkout <a href="https://go.microsoft.com/fwlink/?linkid=2194451">App Service Domain FAQ</a> for more questions.</p>
+        </div>
+     </div>
+</body>
+</html>
+
+2025-04-19 19:17:59,851 - backend.bhashini_voice - ERROR - ASR API connection failed: 502: ASR error: <!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Azure Web App - Error 404</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #feature {
+            width: 960px;
+            margin: 75px auto 0 auto;
+            overflow: auto;
+        }
+
+        #content {
+            font-family: "Segoe UI";
+            font-weight: normal;
+            font-size: 22px;
+            color: #ffffff;
+            float: left;
+            margin-top: 68px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }
+
+            #content h1 {
+                font-family: "Segoe UI Light";
+                color: #ffffff;
+                font-weight: normal;
+                font-size: 60px;
+                line-height: 48pt;
+                width: 800px;
+            }
+
+        a, a:visited, a:active, a:hover {
+            color: #ffffff;
+        }
+
+        #content a.button {
+            background: #0DBCF2;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: Segoe UI;
+            font-size: 24px;
+            line-height: 46px;
+            margin-top: 10px;
+            padding: 0 15px 3px;
+            text-decoration: none;
+        }
+
+            #content a.button img {
+                float: right;
+                padding: 10px 0 0 15px;
+            }
+
+            #content a.button:hover {
+                background: #1C75BC;
+            }
+    </style>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</head>
+<body bgcolor="#00abec">
+    <div id="feature">
+        <div id="content">
+            <h1>404 Web Site not found.</h1>
+            <p>You may be seeing this error due to one of the reasons listed below :</p>
+            <ul>
+                <li>Custom domain has not been configured inside Azure. See <a href="https://go.microsoft.com/fwlink/?linkid=2194614">how to map an existing domain</a> to resolve this.</li>
+                <li>Client cache is still pointing the domain to old IP address. Clear the cache by running the command <i>ipconfig/flushdns.</i></li>
+            </ul>
+            <p>Checkout <a href="https://go.microsoft.com/fwlink/?linkid=2194451">App Service Domain FAQ</a> for more questions.</p>
+        </div>
+     </div>
+</body>
+</html>
+
+2025-04-19 19:17:59,852 - ERROR - Error: 502: ASR API connection failed: 502: ASR error: <!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Azure Web App - Error 404</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #feature {
+            width: 960px;
+            margin: 75px auto 0 auto;
+            overflow: auto;
+        }
+
+        #content {
+            font-family: "Segoe UI";
+            font-weight: normal;
+            font-size: 22px;
+            color: #ffffff;
+            float: left;
+            margin-top: 68px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }
+
+            #content h1 {
+                font-family: "Segoe UI Light";
+                color: #ffffff;
+                font-weight: normal;
+                font-size: 60px;
+                line-height: 48pt;
+                width: 800px;
+            }
+
+        a, a:visited, a:active, a:hover {
+            color: #ffffff;
+        }
+
+        #content a.button {
+            background: #0DBCF2;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: Segoe UI;
+            font-size: 24px;
+            line-height: 46px;
+            margin-top: 10px;
+            padding: 0 15px 3px;
+            text-decoration: none;
+        }
+
+            #content a.button img {
+                float: right;
+                padding: 10px 0 0 15px;
+            }
+
+            #content a.button:hover {
+                background: #1C75BC;
+            }
+    </style>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</head>
+<body bgcolor="#00abec">
+    <div id="feature">
+        <div id="content">
+            <h1>404 Web Site not found.</h1>
+            <p>You may be seeing this error due to one of the reasons listed below :</p>
+            <ul>
+                <li>Custom domain has not been configured inside Azure. See <a href="https://go.microsoft.com/fwlink/?linkid=2194614">how to map an existing domain</a> to resolve this.</li>
+                <li>Client cache is still pointing the domain to old IP address. Clear the cache by running the command <i>ipconfig/flushdns.</i></li>
+            </ul>
+            <p>Checkout <a href="https://go.microsoft.com/fwlink/?linkid=2194451">App Service Domain FAQ</a> for more questions.</p>
+        </div>
+     </div>
+</body>
+</html>
+
+2025-04-19 19:17:59,852 - backend.bhashini_voice - ERROR - Error: 502: ASR API connection failed: 502: ASR error: <!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Azure Web App - Error 404</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #feature {
+            width: 960px;
+            margin: 75px auto 0 auto;
+            overflow: auto;
+        }
+
+        #content {
+            font-family: "Segoe UI";
+            font-weight: normal;
+            font-size: 22px;
+            color: #ffffff;
+            float: left;
+            margin-top: 68px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }
+
+            #content h1 {
+                font-family: "Segoe UI Light";
+                color: #ffffff;
+                font-weight: normal;
+                font-size: 60px;
+                line-height: 48pt;
+                width: 800px;
+            }
+
+        a, a:visited, a:active, a:hover {
+            color: #ffffff;
+        }
+
+        #content a.button {
+            background: #0DBCF2;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: Segoe UI;
+            font-size: 24px;
+            line-height: 46px;
+            margin-top: 10px;
+            padding: 0 15px 3px;
+            text-decoration: none;
+        }
+
+            #content a.button img {
+                float: right;
+                padding: 10px 0 0 15px;
+            }
+
+            #content a.button:hover {
+                background: #1C75BC;
+            }
+    </style>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</head>
+<body bgcolor="#00abec">
+    <div id="feature">
+        <div id="content">
+            <h1>404 Web Site not found.</h1>
+            <p>You may be seeing this error due to one of the reasons listed below :</p>
+            <ul>
+                <li>Custom domain has not been configured inside Azure. See <a href="https://go.microsoft.com/fwlink/?linkid=2194614">how to map an existing domain</a> to resolve this.</li>
+                <li>Client cache is still pointing the domain to old IP address. Clear the cache by running the command <i>ipconfig/flushdns.</i></li>
+            </ul>
+            <p>Checkout <a href="https://go.microsoft.com/fwlink/?linkid=2194451">App Service Domain FAQ</a> for more questions.</p>
+        </div>
+     </div>
+</body>
+</html>
+
+INFO:     127.0.0.1:40056 - "POST /api/voice-query HTTP/1.1" 500 Internal Server Error
+
+
