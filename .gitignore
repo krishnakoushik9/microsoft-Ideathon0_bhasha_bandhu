@@ -96,6 +96,28 @@ yarn-error.log*
 # Exclude NeMo folder
 NeMo/
 
+# Ignore all virtual environments and package/data folders
+venv/
+venv310/
+aprs-legal-assistant/venv/
+aprs-legal-assistant/venv310/
+aprs-legal-assistant/node_modules/
+
+# Ignore large model/data files
+*.nemo
+*.so
+*.wav
+*.mp4
+*.zip
+*.tar.gz
+*.pkl
+*.pt
+*.onnx
+*.ckpt
+*.csv
+*.db
+*.sqlite*
+
 # OS generated files
 .DS_Store
 .DS_Store?
