@@ -17,7 +17,6 @@
 
 <img src="https://skillicons.dev/icons?i=python,fastapi,flutter,dart,nodejs,electron,js,html,css,github,git,linux&perline=8" alt="Tech Stack" />
 
-<!-- Animated divider -->
 <img src="https://readme-animated-icons.vercel.app/api/wave?color=36BCF7&height=3" alt="Animated Divider" />
 
 ### 📊 Codebase Language Distribution
@@ -305,4 +304,3 @@ MIT
 ## Disclaimer
 
 This application is for educational and informational purposes only. It is not a substitute for professional legal advice.
-
