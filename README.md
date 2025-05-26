@@ -17,16 +17,8 @@
 
 <img src="https://skillicons.dev/icons?i=python,fastapi,flutter,dart,nodejs,electron,js,html,css,github,git,linux&perline=8" alt="Tech Stack" />
 
-### 📊 Codebase Language Distribution
+<img src="https://readme-animated-icons.vercel.app/api/wave?color=36BCF7&height=3" alt="Animated Divider" />
 
-| Language | Percentage |
-|----------|------------|
-| Python   | 55%        |
-| Dart     | 30%        |
-| JS       | 10%        |
-| Other    | 5%         |
-
----
 
 > ⚠️ **License & Usage Policy:**  
 > If you wish to copy, reuse, or adapt any part of this project, please email the repository owner first at [YOUR_EMAIL_HERE]. Use is only allowed after explicit approval.
