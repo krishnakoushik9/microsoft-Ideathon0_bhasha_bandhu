@@ -17,7 +17,6 @@
 
 <img src="https://skillicons.dev/icons?i=python,fastapi,flutter,dart,nodejs,electron,js,html,css,github,git,linux&perline=8" alt="Tech Stack" />
 
-<img src="https://readme-animated-icons.vercel.app/api/wave?color=36BCF7&height=3" alt="Animated Divider" />
 
 
 > ⚠️ **License & Usage Policy:**  
