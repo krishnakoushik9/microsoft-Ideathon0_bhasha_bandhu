@@ -21,7 +21,7 @@
 
 
 > ⚠️ **License & Usage Policy:**  
-> If you wish to copy, reuse, or adapt any part of this project, please email the repository owner first at [YOUR_EMAIL_HERE]. Use is only allowed after explicit approval.
+> If you wish to copy, reuse, or adapt any part of this project, please email the repository owner first at [23h51a66h2@cmrcet.ac.in]. Use is only allowed after explicit approval.
 
 </div>
 
