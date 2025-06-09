@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class AskKavvyScreen extends StatefulWidget {
-  const AskKavvyScreen({Key? key}) : super(key: key);
+class AskVeraxPravaktaScreen extends StatefulWidget {
+  const AskVeraxPravaktaScreen({Key? key}) : super(key: key);
 
   @override
-  State<AskKavvyScreen> createState() => _AskKavvyScreenState();
+  State<AskVeraxPravaktaScreen> createState() => _AskVeraxPravaktaScreenState();
 }
 
-class _AskKavvyScreenState extends State<AskKavvyScreen> {
+class _AskVeraxPravaktaScreenState extends State<AskVeraxPravaktaScreen> {
   final TextEditingController _controller = TextEditingController();
   bool _isLoading = false;
   String? _error;
@@ -64,7 +66,7 @@ class _AskKavvyScreenState extends State<AskKavvyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ask Kavvy'),
+        title: const Text('Ask Verax-Pravakta'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -86,9 +88,9 @@ class _AskKavvyScreenState extends State<AskKavvyScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Meet Kavvy!', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)),
+                          Text('Meet Verax-Pravakta!', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)),
                           const SizedBox(height: 4),
-                          Text('Kavvy is your AI legal search assistant. Ask any question and Kavvy will search the web, then answer using the latest AI (powered by Gemini).', style: TextStyle(color: Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black87)),
+                          Text('Verax-Pravakta is your AI legal search assistant. Ask any question and Verax-Pravakta will search the web, then answer using the latest AI (powered by Gemini).', style: TextStyle(color: Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black87)),
                         ],
                       ),
                     ),
@@ -99,7 +101,7 @@ class _AskKavvyScreenState extends State<AskKavvyScreen> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'Ask Kavvy a legal or general question...',
+                labelText: 'Ask Verax-Pravakta a legal or general question...',
                 suffixIcon: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -153,7 +155,7 @@ class _AskKavvyScreenState extends State<AskKavvyScreen> {
                           children: [
                             Icon(Icons.smart_toy, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.green, size: 22),
                             const SizedBox(width: 6),
-                            Text('Kavvy (AI) says:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)),
+                            Text('Verax-Pravakta (AI) says:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)),
                           ],
                         ),
                         const SizedBox(height: 10),
@@ -172,7 +174,7 @@ class _AskKavvyScreenState extends State<AskKavvyScreen> {
                                 onPressed: () async {
                                   await Clipboard.setData(ClipboardData(text: _geminiAnswer!));
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(content: Text('Kavvy\'s answer copied!')),
+                                    const SnackBar(content: Text('Verax-Pravakta\'s answer copied!')),
                                   );
                                 },
                               ),
@@ -243,12 +245,21 @@ class _AskKavvyScreenState extends State<AskKavvyScreen> {
                         child: ListTile(
                           title: Text(item['title'] ?? ''),
                           subtitle: Text(item['snippet'] ?? ''),
-                          onTap: () {
-                            final url = item['url'];
-                            if (url != null) {
-                              // ignore: unsafe_html
-                              // For web: open in new tab
-                              // For mobile: use url_launcher
+                          onTap: () async {
+                            final urlStr = item['url'];
+                            if (urlStr != null && urlStr.isNotEmpty) {
+                              final uri = Uri.parse(urlStr);
+                              if (await canLaunchUrl(uri)) {
+                                await launchUrl(
+                                  uri,
+                                  mode: LaunchMode.externalApplication,
+                                  webOnlyWindowName: '_blank',
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Text('Could not launch URL')),
+                                );
+                              }
                             }
                           },
                           trailing: Icon(Icons.open_in_new),

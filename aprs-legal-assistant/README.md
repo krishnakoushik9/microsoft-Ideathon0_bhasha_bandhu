@@ -2,6 +2,10 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=36BCF7&width=435&lines=APRS+Legal+Assistant+%F0%9F%94%96;Multilingual+AI+for+Law+%F0%9F%93%84%F0%9F%8E%93%F0%9F%9A%80" alt="Typing SVG" />
 
+<img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="120" alt="Animated Book" />
+
+---
+
 ![GitHub repo stars](https://img.shields.io/github/stars/krishnakoushik9/microsoft-Ideathon0_bhasha_bandhu?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/krishnakoushik9/microsoft-Ideathon0_bhasha_bandhu?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/krishnakoushik9/microsoft-Ideathon0_bhasha_bandhu?style=flat-square)
@@ -12,6 +16,12 @@
 ---
 
 <img src="https://skillicons.dev/icons?i=python,fastapi,flutter,dart,nodejs,electron,js,html,css,github,git,linux&perline=8" alt="Tech Stack" />
+
+<img src="https://readme-animated-icons.vercel.app/api/wave?color=36BCF7&height=3" alt="Animated Divider" />
+
+
+> ⚠️ **License & Usage Policy:**  
+> If you wish to copy, reuse, or adapt any part of this project, please email the repository owner first at [YOUR_EMAIL_HERE]. Use is only allowed after explicit approval.
 
 </div>
 

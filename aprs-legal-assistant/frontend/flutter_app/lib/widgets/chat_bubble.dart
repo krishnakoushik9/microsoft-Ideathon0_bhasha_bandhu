@@ -104,13 +104,22 @@ class ChatBubble extends StatelessWidget {
   }
 
   TextSpan _buildStyledText(String message, ThemeData theme, Color textColor) {
-    return TextSpan(
-      text: message,
-      style: theme.textTheme.bodyMedium?.copyWith(
-        color: textColor,
-        fontSize: 14,
-      ),
+    // Parse **bold** segments and render accordingly
+    final baseStyle = theme.textTheme.bodyMedium?.copyWith(
+      color: textColor,
+      fontSize: 14,
     );
+    final parts = message.split('**');
+    final spans = <TextSpan>[];
+    for (var i = 0; i < parts.length; i++) {
+      spans.add(TextSpan(
+        text: parts[i],
+        style: baseStyle?.copyWith(
+          fontWeight: i.isOdd ? FontWeight.bold : FontWeight.normal,
+        ),
+      ));
+    }
+    return TextSpan(children: spans);
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
+
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
@@ -161,7 +162,7 @@ class _DocumentsScreenState extends State<DocumentsScreen> {
   
   // Perform OCR via backend
   Future<Map<String, dynamic>> _performOCR(PlatformFile file) async {
-    final uri = Uri.http('localhost:8000', '/ocr');
+    final uri = Uri.parse('http://localhost:8000/ocr');
     final request = http.MultipartRequest('POST', uri);
     request.files.add(
       http.MultipartFile.fromBytes('file', file.bytes!, filename: file.name),

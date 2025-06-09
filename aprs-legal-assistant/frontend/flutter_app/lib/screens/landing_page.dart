@@ -1162,7 +1162,7 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                       _buildBulletPoint('Sponsored Content & Advertising: Run non‑intrusive ads for legal services, continuing‑ed courses, or allied services (process servers, translators).', color: Colors.amberAccent),
                       _buildBulletPoint('Publish sponsored “law firm spotlights” or “legal tech partners” in your newsletter or app dashboard.', color: Colors.cyanAccent),
                       _buildBulletPoint('Partnerships & Training: Partner with law schools or bar councils to license the tool for students and members.', color: Colors.greenAccent),
-                      _buildBulletPoint('Run paid webinars, certification courses, or “Kavvy‑powered” workshops on research methods.', color: Colors.pinkAccent),
+                      _buildBulletPoint('Run paid webinars, certification courses, or “Verax-Pravakta-powered” workshops on research methods.', color: Colors.pinkAccent),
                     ],
                   ),
                 ),
@@ -1190,7 +1190,7 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                         Text(
                           'READY TO TRANSFORM YOUR LEGAL EXPERIENCE?',
                           style: GoogleFonts.montserrat(
-                            fontSize: 28,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),

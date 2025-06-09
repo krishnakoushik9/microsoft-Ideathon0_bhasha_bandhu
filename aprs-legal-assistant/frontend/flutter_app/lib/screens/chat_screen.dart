@@ -18,6 +18,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:url_launcher/url_launcher.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -31,11 +32,10 @@ class _ChatScreenState extends State<ChatScreen> {
   Color get _primaryColor => _aiProvider == AIProvider.gemini ? Color(0xFF8E24AA) : Theme.of(context).colorScheme.primary;
   Color get _secondaryColor => _aiProvider == AIProvider.gemini ? Color(0xFFD1C4E9) : Theme.of(context).colorScheme.secondary;
   Color get _onPrimary => _aiProvider == AIProvider.gemini ? Colors.white : Theme.of(context).colorScheme.onPrimary;
-  Color get _onSecondary => _aiProvider == AIProvider.gemini ? Color(0xFF4A148C) : Theme.of(context).colorScheme.onSecondary;
-  Color get _backgroundColor => _aiProvider == AIProvider.gemini ? Color(0xFFF3E5F5) : Theme.of(context).scaffoldBackgroundColor;
-  Color get _surfaceColor => _aiProvider == AIProvider.gemini ? Color(0xFFE1BEE7) : Theme.of(context).colorScheme.surface;
-  Color get _onBackground => _aiProvider == AIProvider.gemini ? Color(0xFF4A148C) : Theme.of(context).colorScheme.onBackground;
-  Color get _onSurface => _aiProvider == AIProvider.gemini ? Color(0xFF4A148C) : Theme.of(context).colorScheme.onSurface;
+  Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
+  Color get _surfaceColor => Theme.of(context).colorScheme.surface;
+  Color get _onBackground => Theme.of(context).colorScheme.onBackground;
+  Color get _onSurface => Theme.of(context).colorScheme.onSurface;
 
   final List<Map<String, dynamic>> messages = [];
   final TextEditingController _controller = TextEditingController();
@@ -213,6 +213,36 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  String? _chatDataUrl;
+
+  Future<void> _showChatQr() async {
+    if (messages.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('No conversation to display')),
+      );
+      return;
+    }
+    // Prepare plain-text transcript
+    final summaryText = messages
+        .map((msg) => "${msg['sender']=='user'?'Client':'Legal Assistant'}: ${msg['text']}")
+        .join('\n\n');
+    // Show transcript in a scrollable dialog
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Chat Transcript'),
+        content: SizedBox(
+          width: 400,
+          height: 300,
+          child: SingleChildScrollView(
+            child: Text(summaryText),
+          ),
+        ),
+        actions: [TextButton(onPressed: () => Navigator.pop(context), child: Text('Close'))],
+      ),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -387,12 +417,12 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: _backgroundColor,
       appBar: AppBar(
-        backgroundColor: _primaryColor,
-        foregroundColor: _onPrimary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('APRS Legal Assistant', style: TextStyle(color: _onPrimary)),
+            Text('APRS Legal Assistant', style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
             const SizedBox(width: 14),
             AIProviderToggle(
               provider: _aiProvider,
@@ -412,12 +442,52 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
         centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(32),
+          child: Container(
+            width: double.infinity,
+            color: _surfaceColor,
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+            alignment: Alignment.centerLeft,
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                  decoration: BoxDecoration(
+                    color: _secondaryColor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    '🗂️ Case Type: Consumer Complaint',
+                    style: theme.textTheme.bodySmall?.copyWith(color: _onSurface),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                  decoration: BoxDecoration(
+                    color: _secondaryColor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    '📂 Case ID: #003412',
+                    style: theme.textTheme.bodySmall?.copyWith(color: _onSurface),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         actions: [
-
           IconButton(
             icon: Icon(Icons.picture_as_pdf),
             tooltip: 'Download Legal Summary PDF',
             onPressed: _isGeneratingPdf ? null : _generateAndDownloadPdf,
+          ),
+          IconButton(
+            icon: Icon(Icons.qr_code),
+            tooltip: 'Export chat via QR',
+            onPressed: _showChatQr,
           ),
           Stack(
             alignment: Alignment.center,
@@ -432,7 +502,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     applicationIcon: Icon(
                       Icons.balance,
                       size: 50,
-                      color: _primaryColor,
+                      color: Theme.of(context).colorScheme.surface,
                     ),
                     children: [
                       Text('A legal assistant application using NeMo ASR and AI.'),
@@ -484,7 +554,7 @@ class _ChatScreenState extends State<ChatScreen> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: _secondaryColor,
-                foregroundColor: _onSecondary,
+                foregroundColor: Theme.of(context).colorScheme.onSecondary,
                 minimumSize: Size(double.infinity, 48),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -498,6 +568,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 : _buildChatList(),
           ),
           _buildLoadingIndicator(),
+          _buildQuickActions(),
           _buildInputBar(),
         ],
       ),
@@ -505,34 +576,84 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Widget _buildWelcomeScreen() {
+    final theme = Theme.of(context);
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.chat_bubble_outline,
-            size: 80,
-            color: _primaryColor.withOpacity(0.5),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'Welcome to APRS Legal Assistant',
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: _onBackground),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
-            child: Text(
-              'Ask me anything!',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: _onBackground.withOpacity(0.7),
+      child: Card(
+        margin: const EdgeInsets.all(24),
+        color: theme.colorScheme.surface,
+        elevation: 2,
+        shadowColor: theme.colorScheme.onSurface.withOpacity(0.2),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.gavel_outlined,
+                size: 80,
+                color: theme.colorScheme.primary.withOpacity(0.8),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Welcome to APRS Legal Assistant',
+                style: theme.textTheme.headlineSmall?.copyWith(color: theme.colorScheme.onSurface),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Ask me anything!',
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface.withOpacity(0.7)),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.network(
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/1200px-Microsoft_Azure.svg.png',
+                    width: 80,
+                    height: 80,
                   ),
-              textAlign: TextAlign.center,
-            ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Will be Powered By Azure',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurface.withOpacity(0.6),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              Divider(
+                thickness: 1,
+                color: theme.colorScheme.onSurface.withOpacity(0.2),
+                indent: 32,
+                endIndent: 32,
+              ),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.developer_mode,
+                    size: 16,
+                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Product developed by srcs-technologies',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurface.withOpacity(0.6),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
-      ).animate().fadeIn(duration: 500.ms).slide(begin: Offset(0, 0.1), end: Offset.zero),
+        ).animate().fadeIn(duration: 500.ms).slide(begin: Offset(0, 0.1), end: Offset.zero),
+      ),
     );
   }
 
@@ -541,8 +662,11 @@ class _ChatScreenState extends State<ChatScreen> {
       controller: _scrollController,
       padding: const EdgeInsets.all(8),
       reverse: true,
-      itemCount: messages.length,
+      itemCount: messages.length + 1,
       itemBuilder: (context, index) {
+        if (index == messages.length) {
+          return DateSeparator(date: DateTime.now());
+        }
         final msg = messages[messages.length - 1 - index];
         return ChatBubble(
           message: msg['text'] ?? '',
@@ -568,6 +692,63 @@ class _ChatScreenState extends State<ChatScreen> {
         : SizedBox.shrink();
   }
 
+  Widget _buildQuickActions() {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            ElevatedButton.icon(
+              onPressed: () {}, // TODO: implement upload document
+              icon: Icon(Icons.upload_file, color: theme.colorScheme.onPrimary),
+              label: Text('Upload Document'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: theme.colorScheme.primary,
+                elevation: 1,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+            SizedBox(width: 8),
+            ElevatedButton.icon(
+              onPressed: _toggleListening,
+              icon: Icon(Icons.mic, color: theme.colorScheme.onPrimary),
+              label: Text('Voice Query'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: theme.colorScheme.primary,
+                elevation: 1,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+            SizedBox(width: 8),
+            ElevatedButton.icon(
+              onPressed: () {}, // TODO: implement ask legal doubt
+              icon: Icon(Icons.gavel, color: theme.colorScheme.onPrimary),
+              label: Text('Ask Legal Doubt'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: theme.colorScheme.primary,
+                elevation: 1,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+            SizedBox(width: 8),
+            ElevatedButton.icon(
+              onPressed: () {}, // TODO: implement view previous queries
+              icon: Icon(Icons.folder, color: theme.colorScheme.onPrimary),
+              label: Text('View Previous Queries'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: theme.colorScheme.primary,
+                elevation: 1,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildInputBar() {
     final theme = Theme.of(context);
     return Container(
@@ -591,14 +772,14 @@ class _ChatScreenState extends State<ChatScreen> {
                 textCapitalization: TextCapitalization.sentences,
                 style: theme.textTheme.bodyLarge,
                 decoration: InputDecoration(
-                  hintText: 'Type your question...',
+                  hintText: 'Type your legal question...',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(24),
                     borderSide: BorderSide.none,
                   ),
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 20,
-                    vertical: 12,
+                    vertical: 16,
                   ),
                   filled: true,
                   fillColor: theme.brightness == Brightness.light
@@ -647,7 +828,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 shape: BoxShape.circle,
               ),
               child: IconButton(
-                icon: const Icon(Icons.send),
+                icon: const Icon(Icons.send_rounded),
                 onPressed: (_controller.text.trim().isNotEmpty && !_isLoading)
                     ? () => _sendMessage(_controller.text)
                     : null,

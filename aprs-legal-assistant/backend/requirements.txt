@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-dotenv
+azure-cognitiveservices-speech
+google-generativeai
+google-cloud-translate
+httpx
+requests
+python-multipart
+pydantic

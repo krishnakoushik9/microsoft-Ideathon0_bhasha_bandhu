@@ -43,6 +43,32 @@ class _AIProviderToggleState extends State<AIProviderToggle> with SingleTickerPr
         ? [Colors.deepPurple, Colors.purpleAccent, Colors.blueAccent]
         : [Colors.teal, Colors.cyanAccent, Colors.greenAccent];
     final glowColor = isHuggingFace ? Colors.deepPurpleAccent : Colors.tealAccent;
+    
+    // Logo widget with proper theming
+    Widget _buildLogo() {
+      return Container(
+        width: 24,
+        height: 24,
+        decoration: BoxDecoration(
+          color: isHuggingFace ? Colors.deepPurple : Colors.teal,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: glowColor.withOpacity(0.5),
+              blurRadius: 8,
+              spreadRadius: 1,
+            ),
+          ],
+        ),
+        child: Center(
+          child: Icon(
+            isHuggingFace ? Icons.hub : Icons.bubble_chart,
+            color: Colors.white,
+            size: 16,
+          ),
+        ),
+      );
+    }
 
     return GestureDetector(
       onTapDown: (_) => setState(() => _pressed = true),
@@ -152,7 +178,7 @@ class _AIProviderToggleState extends State<AIProviderToggle> with SingleTickerPr
                       child: FadeTransition(opacity: anim, child: child),
                     ),
                     child: Text(
-                      isHuggingFace ? 'Hugging Face' : 'Gemini',
+                      isHuggingFace ? 'HuggingFace' : 'Gemini',
                       key: ValueKey(isHuggingFace),
                       style: const TextStyle(
                         color: Colors.white,

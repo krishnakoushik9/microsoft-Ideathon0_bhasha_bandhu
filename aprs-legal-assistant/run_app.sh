@@ -72,7 +72,7 @@ source "$VENV_PATH/bin/activate"
 echo "Checking required dependencies..."
 if ! python -c "import fastapi" &>/dev/null || ! python -c "import aiohttp" &>/dev/null; then
     echo "Installing FastAPI and other required packages..."
-    pip install fastapi uvicorn reportlab pymupdf python-docx python-multipart requests sentence-transformers python-dotenv pinecone-client aiohttp google-generativeai
+    pip install fastapi uvicorn reportlab pymupdf python-docx python-multipart requests sentence-transformers python-dotenv pinecone-client aiohttp google-generativeai azure-cognitiveservices-speech
 fi
 
 # No need for special dependencies for the simplified voice service

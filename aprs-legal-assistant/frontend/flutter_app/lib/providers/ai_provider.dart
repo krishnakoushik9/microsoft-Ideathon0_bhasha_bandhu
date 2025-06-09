@@ -1,0 +1,4 @@
+enum AIProvider {
+  huggingFace,
+  gemini,
+}

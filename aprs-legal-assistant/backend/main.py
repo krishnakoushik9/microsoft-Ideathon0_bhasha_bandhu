@@ -20,6 +20,7 @@ import os
 # Add the current directory to the path so we can import local modules
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from lawyers import router as lawyers_router
+from bhashini_voice import router as voice_router
 
 # Setup logging
 logger = logging.getLogger("aprs_legal_assistant")
@@ -145,6 +146,7 @@ async def kavvy_search(request: Request):
 
 # Include routers
 app.include_router(lawyers_router)
+app.include_router(voice_router, prefix="/api")
 
 # Add CORS middleware
 app.add_middleware(

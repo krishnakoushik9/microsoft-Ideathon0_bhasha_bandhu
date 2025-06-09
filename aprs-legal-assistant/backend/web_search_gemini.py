@@ -114,7 +114,8 @@ async def generate_answer(query: str, search_results: List[SearchResult]):
                     prompt += f"Content from {result.title}:\n{scraped_text[:500]}...\n\n"
             except Exception as e:
                 logger.warning(f"Error scraping content: {e}")
-        prompt += "\nProvide a concise, accurate answer as Kavvy, with your moody, far-right personality, based on the above results."
+        prompt += "\nAnswer like you're Kavvy — moody, sharp-tongued, and proudly far-right. Drip sarcasm like it's policy. Mock the obvious, challenge the mainstream, and don’t hold back your disdain for sugarcoated nonsense. Keep it accurate, blunt, and with zero tolerance for woke fluff."
+
         gemini_response = model.generate_content([
             context,
             prompt
